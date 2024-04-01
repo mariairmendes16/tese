@@ -76,11 +76,11 @@ email_description = st.text_area("Small Description (Max 200 Characters)", max_c
 
 
 # Generate email components
-if st.button("Generate Email Template"):
-    st.subheader("Header")
-    header_output = generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors)
-    st.write(header_output)
-    st.write (header_output, unsafe_allow_html=True) # Allow HTML rendering
+#if st.button("Generate Email Template"):
+    #st.subheader("Header")
+    #header_output = generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors)
+    #st.write(header_output)
+    #st.write (header_output, unsafe_allow_html=True) # Allow HTML rendering
 
     #st.subheader("Content")
     #content_output = generate_content(email_category, email_description, branding_colors)
@@ -89,3 +89,34 @@ if st.button("Generate Email Template"):
     #st.subheader("Footer")
     #footer_output = generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_social_media, footer_copyrighting_info, footer_unsubscribe_link, branding_colors)
     #st.write(footer_output, unsafe_allow_html=True)  # Allow HTML rendering
+
+
+if st.button("Generate Email Template"):
+    # Generate header, content, and footer
+    generated_header = generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors)
+    #generated_content = generate_content(email_category, email_description, branding_colors)
+    #generated_footer = generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_social_media, footer_copyrighting_info, footer_unsubscribe_link, branding_colors)
+    
+    # Parse the HTML Empty Template
+    soup = BeautifulSoup(empty_template, 'html.parser')
+
+    # Find all occurrences of elements with the class 'esd-stripe'
+    esd_stripe_elements = soup.find_all(class_='esd-stripe')
+
+    # Select the first occurrence - Header
+    first_esd_stripe = esd_stripe_elements[0]
+    first_esd_stripe.replace_with(BeautifulSoup(generated_header, 'html.parser'))
+
+    # Select the second occurrence - Content
+    #second_esd_stripe = esd_stripe_elements[1]
+    #second_esd_stripe.replace_with(BeautifulSoup(generated_content, 'html.parser'))
+
+    # Select the third occurrence - Footer
+    #third_esd_stripe = esd_stripe_elements[2]
+    #third_esd_stripe.replace_with(BeautifulSoup(generated_footer, 'html.parser'))
+
+    # Convert the populated HTML template to a string
+    populated_template = soup.prettify()
+
+    # Display the populated HTML template in Streamlit
+    st.markdown(populated_template, unsafe_allow_html=True)
