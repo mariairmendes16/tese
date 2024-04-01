@@ -50,13 +50,13 @@ st.title("AI Email Template Generator")
 # Input fields
 col1, col2 = st.columns(2)
 with col1:
-    st.header("HEADER")
+    st.header("Header")
     header_hotel_logo = st.checkbox("Header Hotel Logo")
     header_menu = st.checkbox("Header Menu")
     header_view_in_browser = st.checkbox("View in Browser Link")
 
 with col2:
-    st.header("FOOTER")
+    st.header("Footer")
     footer_hotel_logo = st.checkbox("Footer Hotel Logo")
     footer_hotel_info = st.checkbox("Hotel Information")
     footer_menu = st.checkbox("Footer Menu")
@@ -64,17 +64,15 @@ with col2:
     footer_copyrighting_info = st.checkbox("Copyrighting Information")
     footer_unsubscribe_link = st.checkbox("Unsubscribe Link")
 
-st.header("GENERAL SETTINGS")
+st.header("General Settings")
 # Define your branding colors
 branding_colors = [
     st.color_picker("Branding Color 1"),
     st.color_picker("Branding Color 2"),
     st.color_picker("Branding Color 3")
 ]
-
 # Display in three columns
 col1, col2, col3 = st.columns(3)
-
 # Place each color picker widget in a separate column
 with col1:
     branding_colors[0]
@@ -82,7 +80,6 @@ with col2:
     branding_colors[1]
 with col3:
     branding_colors[2]
-# branding_colors = [st.color_picker("Branding Color 1"), st.color_picker("Branding Color 2"), st.color_picker("Branding Color 3")]
 email_category = st.selectbox("Email Category", ["Apology","Birthday Email","Booking Cancellation","Booking Confirmation","Check-Out Reminder", "Double Opt-In", "F&B", "Feedback Request" , "Informative", "Invitation", "Invoice Email", "Legal Updates",  "Loyalty Offer", "Loyalty Program Presentation", "Mid-stay", "New Level of Loyalty Program", "New Loyalty Member", "Newsletter", "Pre-arrival",  "Spa", "Special Occasions", "Special Offers", "Stay Anniversary", "Welcome Email"])
 speech_tone = st.selectbox("Speech Tone", ["🤝 Professional", "😊 Friendly", "🎉 Celebratory", "🙏 Apologetic", "💡 Informative", "🌟 Persuasive", "💌 Welcoming", "🥳 Excited", "🛎️ Urgent", "🤗 Appreciative"])
 email_description = st.text_area("Small Description (Max 200 Characters)", max_chars=200)
