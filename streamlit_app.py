@@ -2,6 +2,22 @@ import streamlit as st
 import openai
 from bs4 import BeautifulSoup
 
+def rainbow_divider():
+    st.markdown(
+        """
+        <style>
+        .rainbow-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+            margin: 25px 0;
+        }
+        </style>
+        <div class="rainbow-divider"></div>
+        """,
+        unsafe_allow_html=True,
+    )
+
 # Retrieve API key from environment variable
 #openai.api_key = st.secrets["OPENAI_API_KEY"]
 
@@ -53,7 +69,7 @@ st.title("AI Email Template Generator")
 col1, col2 = st.columns(2)
 with col1:
     st.header('Header')
-    st.divider()
+    rainbow_divider()
     header_hotel_logo = st.checkbox("Header Hotel Logo")
     header_menu = st.checkbox("Header Menu")
     header_view_in_browser = st.checkbox("View in Browser Link")
