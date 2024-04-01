@@ -2,18 +2,10 @@ import streamlit as st
 import openai
 from bs4 import BeautifulSoup
 
-def rainbow_divider():
+def blue_divider():
     st.markdown(
         """
-        <style>
-        .rainbow-divider {
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
-            margin: 15px 0;
-        }
-        </style>
-        <div class="rainbow-divider"></div>
+        <div style="background-color: #0667FF; height: 3px;"></div>
         """,
         unsafe_allow_html=True,
     )
@@ -69,7 +61,7 @@ st.title("AI Email Template Generator")
 col1, col2 = st.columns(2)
 with col1:
     st.header('Header')
-    rainbow_divider()
+    blue_divider()
     header_hotel_logo = st.checkbox("Header Hotel Logo")
     header_menu = st.checkbox("Header Menu")
     header_view_in_browser = st.checkbox("View in Browser Link")
