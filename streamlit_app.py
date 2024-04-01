@@ -3,7 +3,7 @@ import openai
 import os
 
 # Retrieve API key from environment variable
-api_key = os.getenv("OPENAI_API_KEY")
+openai.Client(api_key=os.environ.get("OPENAI_API_KEY"))
 
 def generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors):
     response_header = client.chat.completions.create(
