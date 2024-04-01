@@ -121,5 +121,7 @@ if st.button("Generate Email Template"):
     populated_template = soup.prettify()
 
     # Display the populated HTML template in Streamlit
-    st.write(populated_template)
     st.write(populated_template, unsafe_allow_html=True)
+    st.subheader('Generated HTML', divider='grey')
+    st.write(populated_template)
+
