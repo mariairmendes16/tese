@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 
 # Set up OpenAI API key
-openai.api_key = "your_openai_api_key_here"
+openai.api_key = os.environ['OPENAI_API_KEY']
 
 def generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors):
     response_header = openai.ChatCompletion.create(
