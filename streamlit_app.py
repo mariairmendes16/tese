@@ -65,7 +65,7 @@ with col2:
     footer_unsubscribe_link = st.checkbox("Include Unsubscribe Link in Footer")
 
 with col3:
-   st.header("GENERAL SETTINGS")
+    st.header("GENERAL SETTINGS")
     branding_colors = [st.color_picker("Choose Branding Color 1", '#000000'), st.color_picker("Choose Branding Color 2", '#ffffff'), st.color_picker("Choose Branding Color 3", '#00f900')]
     email_category = st.selectbox("Email Category", ["Invoice", "Welcome Email", "Pre-Arrival", "Apology", "Informative", "Birthday", "Double Opt-In", "Newsletter"])
     speech_tone = st.selectbox("Speech Tone", ["Formal", "Informal", "Friendly", "Persuasive", "Assertive", "Surprised", "Informative"])
