@@ -52,12 +52,14 @@ st.title("AI Email Template Generator")
 col1, col2 = st.columns(2)
 with col1:
     st.header('Header')
+    st.divider()
     header_hotel_logo = st.checkbox("Header Hotel Logo")
     header_menu = st.checkbox("Header Menu")
     header_view_in_browser = st.checkbox("View in Browser Link")
 
 with col2:
     st.header('Footer')
+    st.divider()
     footer_hotel_logo = st.checkbox("Footer Hotel Logo")
     footer_hotel_info = st.checkbox("Hotel Information")
     footer_menu = st.checkbox("Footer Menu")
@@ -66,6 +68,7 @@ with col2:
     footer_unsubscribe_link = st.checkbox("Unsubscribe Link")
 
 st.header("General Settings")
+st.divider()
 col1, col2 = st.columns(2)
 with col1:
     branding_colors = [st.color_picker("Branding Color 1"), st.color_picker("Branding Color 2"), st.color_picker("Branding Color 3")]
