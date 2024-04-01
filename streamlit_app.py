@@ -55,7 +55,7 @@ def generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_so
     return response_footer.choices[0].message['content']
 
 # Streamlit UI
-st.title("AI Email Template Generator")
+st.title("🤖 AI Email Template Generator")
 
 # Input fields
 col1, col2 = st.columns(2)
@@ -81,29 +81,30 @@ with col2:
     footer_unsubscribe_link = st.checkbox("Unsubscribe Link")
 
 
-st.header("General Settings")
+st.header("⚙️ General Settings")
 st.caption('Please provide more details about your email.')
 blue_divider()
 col1, col2 = st.columns(2)
 with col1:
+    st.subheader("🎨 Branding Colors")
     branding_colors_placeholder = st.empty()
-    branding_colors = [st.color_picker("Branding Color 1"), st.color_picker("Branding Color 2")]
+    branding_colors = [st.color_picker("Branding Color 1️⃣"), st.color_picker("Branding Color 2️⃣")]
     add_third_color = st.checkbox("Add 3rd Branding Color")
 if add_third_color:
-    branding_colors.append(st.color_picker("Branding Color 3"))
+    branding_colors.append(st.color_picker("Branding Color 3️⃣"))
     add_fourth_color = st.checkbox("Add 4th Branding Color")
     if add_fourth_color:
-        branding_colors.append(st.color_picker("Branding Color 4"))
+        branding_colors.append(st.color_picker("Branding Color 4️⃣"))
         add_fifth_color = st.checkbox("Add 5th Branding Color")
         if add_fifth_color:
-            branding_colors.append(st.color_picker("Branding Color 5"))
+            branding_colors.append(st.color_picker("Branding Color 5️⃣"))
 
 with col2:
-    email_category = st.selectbox("Email Category", ("Apology","Birthday Email","Booking Cancellation","Booking Confirmation","Check-Out Reminder", "Double Opt-In", "F&B", "Feedback Request" , "Informative", "Invitation", "Invoice Email", "Legal Updates",  "Loyalty Offer", "Loyalty Program Presentation", "Mid-stay", "New Level of Loyalty Program", "New Loyalty Member", "Newsletter", "Pre-arrival",  "Spa", "Special Occasions", "Special Offers", "Stay Anniversary", "Welcome Email"), index=None, placeholder="Select email category...")
+    email_category = st.selectbox("📧 Email Category", ("Apology","Birthday Email","Booking Cancellation","Booking Confirmation","Check-Out Reminder", "Double Opt-In", "F&B", "Feedback Request" , "Informative", "Invitation", "Invoice Email", "Legal Updates",  "Loyalty Offer", "Loyalty Program Presentation", "Mid-stay", "New Level of Loyalty Program", "New Loyalty Member", "Newsletter", "Pre-arrival",  "Spa", "Special Occasions", "Special Offers", "Stay Anniversary", "Welcome Email"), index=None, placeholder="Select email category...")
     category_error_placeholder = st.empty()
-    speech_tone = st.selectbox("Speech Tone", ("🤝 Professional", "😊 Friendly", "🎉 Celebratory", "🙏 Apologetic", "💡 Informative", "🌟 Persuasive", "💌 Welcoming", "🥳 Excited", "🛎️ Urgent", "🤗 Appreciative"), index=None, placeholder="Select speech tone...")
+    speech_tone = st.selectbox("🗣️ Speech Tone", ("🤝 Professional", "😊 Friendly", "🎉 Celebratory", "🙏 Apologetic", "💡 Informative", "🌟 Persuasive", "💌 Welcoming", "🥳 Excited", "🛎️ Urgent", "🤗 Appreciative"), index=None, placeholder="Select speech tone...")
     tone_error_placeholder = st.empty()
-email_description = st.text_area("Small Description (Max 200 Characters)", max_chars=200, placeholder="Please insert email description here.")
+email_description = st.text_area("📝 Email Description (Max 200 Characters)", max_chars=200, placeholder="Please insert email description here.")
 description_error_placeholder = st.empty()
 
 if st.button("Generate Email Template"):
