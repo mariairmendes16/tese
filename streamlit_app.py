@@ -1,6 +1,5 @@
 import streamlit as st
 import openai
-import os
 
 # Retrieve API key from environment variable
 openai.api_key = st.secrets["OPENAI_API_KEY"]
