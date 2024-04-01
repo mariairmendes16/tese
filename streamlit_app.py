@@ -51,13 +51,13 @@ st.title("AI Email Template Generator")
 # Input fields
 col1, col2 = st.columns(2)
 with col1:
-    st.header("Header", divider='grey')
+    st.header('Header', divider='grey')
     header_hotel_logo = st.checkbox("Header Hotel Logo")
     header_menu = st.checkbox("Header Menu")
     header_view_in_browser = st.checkbox("View in Browser Link")
 
 with col2:
-    st.header("Footer", divider=True)
+    st.header('Footer', divider='grey')
     footer_hotel_logo = st.checkbox("Footer Hotel Logo")
     footer_hotel_info = st.checkbox("Hotel Information")
     footer_menu = st.checkbox("Footer Menu")
