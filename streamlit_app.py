@@ -63,22 +63,22 @@ with col1:
     st.header('Header')
     st.caption('Please select what you want to include.')
     blue_divider()
+    header_error_placeholder = st.empty()
     header_hotel_logo = st.checkbox("Header Hotel Logo")
     header_menu = st.checkbox("Header Menu")
     header_view_in_browser = st.checkbox("View in Browser Link")
-    header_error_placeholder = st.empty()
 
 with col2:
     st.header('Footer')
     st.caption('Please select what you want to include.')
     blue_divider()
+    footer_error_placeholder = st.empty()
     footer_hotel_logo = st.checkbox("Footer Hotel Logo")
     footer_hotel_info = st.checkbox("Hotel Information")
     footer_menu = st.checkbox("Footer Menu")
     footer_social_media = st.checkbox("Social Media Links")
     footer_copyrighting_info = st.checkbox("Copyrighting Information")
     footer_unsubscribe_link = st.checkbox("Unsubscribe Link")
-    footer_error_placeholder = st.empty()
 
 
 st.header("General Settings")
@@ -87,9 +87,6 @@ blue_divider()
 col1, col2 = st.columns(2)
 with col1:
     branding_colors = [st.color_picker("Branding Color 1"), st.color_picker("Branding Color 2")]
-    if branding_colors.count("#000000") > 1:
-        branding_error_placeholder.error("Only one branding color can be #000000.")
-        st.stop()
     add_third_color = st.checkbox("Add 3rd Branding Color")
 if add_third_color:
     branding_colors.append(st.color_picker("Branding Color 3"))
