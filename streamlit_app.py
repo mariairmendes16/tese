@@ -51,22 +51,22 @@ st.title("AI Email Template Generator")
 col1, col2, col3 = st.columns(3)
 with col1:
     st.header("HEADER")
-    header_hotel_logo = st.checkbox("Include Hotel Logo in Header")
-    header_menu = st.checkbox("Include Menu in Header")
-    header_view_in_browser = st.checkbox("Include View in Browser Link in Header")
+    header_hotel_logo = st.checkbox("Hotel Logo")
+    header_menu = st.checkbox("Menu")
+    header_view_in_browser = st.checkbox("View in Browser Link")
 
 with col2:
     st.header("FOOTER")
-    footer_hotel_logo = st.checkbox("Include Hotel Logo in Footer")
-    footer_hotel_info = st.checkbox("Include Hotel Information in Footer")
-    footer_menu = st.checkbox("Include Menu in Footer")
-    footer_social_media = st.checkbox("Include Social Media Links in Footer")
-    footer_copyrighting_info = st.checkbox("Include Copyrighting Information in Footer")
-    footer_unsubscribe_link = st.checkbox("Include Unsubscribe Link in Footer")
+    footer_hotel_logo = st.checkbox("Hotel Logo")
+    footer_hotel_info = st.checkbox("Hotel Information")
+    footer_menu = st.checkbox("Menu")
+    footer_social_media = st.checkbox("Social Media Links")
+    footer_copyrighting_info = st.checkbox("Copyrighting Information")
+    footer_unsubscribe_link = st.checkbox("Unsubscribe Link")
 
 with col3:
     st.header("GENERAL SETTINGS")
-    branding_colors = [st.color_picker("Choose Branding Color 1", '#000000'), st.color_picker("Choose Branding Color 2", '#ffffff'), st.color_picker("Choose Branding Color 3", '#00f900')]
+    branding_colors = [st.color_picker("Branding Color 1", '#000000'), st.color_picker("Branding Color 2", '#ffffff'), st.color_picker("Branding Color 3", '#00f900')]
     email_category = st.selectbox("Email Category", ["Invoice", "Welcome Email", "Pre-Arrival", "Apology", "Informative", "Birthday", "Double Opt-In", "Newsletter"])
     speech_tone = st.selectbox("Speech Tone", ["Formal", "Informal", "Friendly", "Persuasive", "Assertive", "Surprised", "Informative"])
 
