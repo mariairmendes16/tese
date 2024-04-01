@@ -96,11 +96,31 @@ if add_third_color:
 
 with col2:
     email_category = st.selectbox("Email Category", ("Apology","Birthday Email","Booking Cancellation","Booking Confirmation","Check-Out Reminder", "Double Opt-In", "F&B", "Feedback Request" , "Informative", "Invitation", "Invoice Email", "Legal Updates",  "Loyalty Offer", "Loyalty Program Presentation", "Mid-stay", "New Level of Loyalty Program", "New Loyalty Member", "Newsletter", "Pre-arrival",  "Spa", "Special Occasions", "Special Offers", "Stay Anniversary", "Welcome Email"), index=None, placeholder="Select email category...")
-        if email_category == "NONE":
-            st.error("Please choose an email category.", icon="🤖")
     speech_tone = st.selectbox("Speech Tone", ("🤝 Professional", "😊 Friendly", "🎉 Celebratory", "🙏 Apologetic", "💡 Informative", "🌟 Persuasive", "💌 Welcoming", "🥳 Excited", "🛎️ Urgent", "🤗 Appreciative"), index=None, placeholder="Select speech tone...")
 email_description = st.text_area("Small Description (Max 200 Characters)", max_chars=200, placeholder="Please insert email description here.")
 
+# Generate email template function
+def generate_email_template():
+    errors = []
+
+    if not (header_hotel_logo or header_menu or header_view_in_browser):
+        errors.append("Please select at least one option for the header.")
+
+    if not (footer_hotel_logo or footer_hotel_info or footer_menu or footer_social_media or footer_copyrighting_info or footer_unsubscribe_link):
+        errors.append("Please select at least one option for the footer.")
+
+    if email_category is None:
+        errors.append("Please select an email category.")
+
+    if speech_tone is None:
+        errors.append("Please select a speech tone.")
+
+    if not email_description:
+        errors.append("Please provide a description for the email.")
+
+    if errors:
+        st.error("\n".join(errors))
+        return
 
 # Generate email components
 #if st.button("Generate Email Template"):
@@ -120,7 +140,7 @@ email_description = st.text_area("Small Description (Max 200 Characters)", max_c
 
 if st.button("Generate Email Template"):
     st.subheader("Generated Template")
-    generated_header = generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors)
+    #generated_header = generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors)
     #generated_content = generate_content(email_category, email_description, branding_colors)
     #generated_footer = generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_social_media, footer_copyrighting_info, footer_unsubscribe_link, branding_colors)
     
