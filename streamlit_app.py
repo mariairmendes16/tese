@@ -1,6 +1,5 @@
 import streamlit as st
 import openai
-from openai import OpenAI
 import os
 
 # Retrieve API key from environment variable
