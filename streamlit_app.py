@@ -86,8 +86,7 @@ st.caption('Please provide more details about your email.')
 blue_divider()
 col1, col2 = st.columns(2)
 with col1:
-    #st.subheader("🎨 Branding Colors")
-    st.markdown("###### 🎨 Branding Colors")
+    st.markdown("##### 🎨 Branding Colors")
     branding_colors_placeholder = st.empty()
     branding_colors = [st.color_picker("Branding Color 1️⃣"), st.color_picker("Branding Color 2️⃣")]
     add_third_color = st.checkbox("Add 3rd Branding Color")
@@ -101,13 +100,13 @@ with col1:
                 branding_colors.append(st.color_picker("Branding Color 5️⃣"))
 
 with col2:
-    st.subheader("📧 Email Category")
+    st.markdown("##### 📧 Email Category")
     email_category = st.selectbox("", ("Apology","Birthday Email","Booking Cancellation","Booking Confirmation","Check-Out Reminder", "Double Opt-In", "F&B", "Feedback Request" , "Informative", "Invitation", "Invoice Email", "Legal Updates",  "Loyalty Offer", "Loyalty Program Presentation", "Mid-stay", "New Level of Loyalty Program", "New Loyalty Member", "Newsletter", "Pre-arrival",  "Spa", "Special Occasions", "Special Offers", "Stay Anniversary", "Welcome Email"), index=None, placeholder="Select email category...")
     category_error_placeholder = st.empty()
-    st.subheader("🗣️ Speech Tone")
+    st.markdown("##### 🗣️ Speech Tone")
     speech_tone = st.selectbox("", ("🤝 Professional", "😊 Friendly", "🎉 Celebratory", "🙏 Apologetic", "💡 Informative", "🌟 Persuasive", "💌 Welcoming", "🥳 Excited", "🛎️ Urgent", "🤗 Appreciative"), index=None, placeholder="Select speech tone...")
     tone_error_placeholder = st.empty()
-st.subheader("📝 Email Description")
+st.markdown("##### 📝 Email Description")
 email_description = st.text_area("(Max 200 Characters)", max_chars=200, placeholder="Please insert email description here.")
 description_error_placeholder = st.empty()
 
