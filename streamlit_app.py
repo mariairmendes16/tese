@@ -6,7 +6,7 @@ import os
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 def generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors):
-    response_header = client.chat.completions.create(
+    response_header = openai.ChatCompletion.create((
       model="ft:gpt-3.5-turbo-0125:personal:tentativa18:96h7SJau",
       messages=[
         {"role": "system", "content": "Generate visually appealing HTML email headers, within a structured layout comprising just the email header, according to the user requirement provided."},
