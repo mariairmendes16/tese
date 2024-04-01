@@ -90,14 +90,14 @@ with col1:
     branding_colors_placeholder = st.empty()
     branding_colors = [st.color_picker("Branding Color 1️⃣"), st.color_picker("Branding Color 2️⃣")]
     add_third_color = st.checkbox("Add 3rd Branding Color")
-if add_third_color:
-    branding_colors.append(st.color_picker("Branding Color 3️⃣"))
-    add_fourth_color = st.checkbox("Add 4th Branding Color")
-    if add_fourth_color:
-        branding_colors.append(st.color_picker("Branding Color 4️⃣"))
-        add_fifth_color = st.checkbox("Add 5th Branding Color")
-        if add_fifth_color:
-            branding_colors.append(st.color_picker("Branding Color 5️⃣"))
+    if add_third_color:
+        branding_colors.append(st.color_picker("Branding Color 3️⃣"))
+        add_fourth_color = st.checkbox("Add 4th Branding Color")
+        if add_fourth_color:
+            branding_colors.append(st.color_picker("Branding Color 4️⃣"))
+            add_fifth_color = st.checkbox("Add 5th Branding Color")
+            if add_fifth_color:
+                branding_colors.append(st.color_picker("Branding Color 5️⃣"))
 
 with col2:
     st.subheader("📧 Email Category")
