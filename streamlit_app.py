@@ -1,8 +1,5 @@
 import streamlit as st
-from openai import OpenAI
-
-with st.sidebar:
-    openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
+import openai
 
 def generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors):
     response_header = client.chat.completions.create(
