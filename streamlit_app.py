@@ -87,6 +87,9 @@ blue_divider()
 col1, col2 = st.columns(2)
 with col1:
     branding_colors = [st.color_picker("Branding Color 1"), st.color_picker("Branding Color 2")]
+    if branding_colors.count("#000000") > 1:
+        branding_error_placeholder.error("Only one branding color can be #000000.")
+        st.stop()
     add_third_color = st.checkbox("Add 3rd Branding Color")
 if add_third_color:
     branding_colors.append(st.color_picker("Branding Color 3"))
@@ -109,19 +112,14 @@ if st.button("Generate Email Template"):
     errors = []
     if not (header_hotel_logo or header_menu or header_view_in_browser):
         header_error_placeholder.error("Please select at least one option for the header.")
-        errors.append("Header options are required.")
     if not (footer_hotel_logo or footer_hotel_info or footer_menu or footer_social_media or footer_copyrighting_info or footer_unsubscribe_link):
         footer_error_placeholder.error("Please select at least one option for the footer.")
-        errors.append("Footer options are required.")
-    if email_category == "NONE":
+    if email_category is None:
         category_error_placeholder.error("Please choose an email category.")
-        errors.append("Email category is required.")
-    if speech_tone == "NONE":
+    if speech_tone is None:
         tone_error_placeholder.error("Please choose a speech tone.")
-        errors.append("Speech tone is required.")
     if not email_description.strip():
         description_error_placeholder.error("Please provide a small description for the email.")
-        errors.append("Email description is required.")
 
 else:
     st.subheader("Generated Template")
