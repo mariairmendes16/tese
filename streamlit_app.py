@@ -84,7 +84,7 @@ blue_divider()
 col1, col2 = st.columns(2)
 with col1:
     branding_colors = [st.color_picker("Branding Color 1"), st.color_picker("Branding Color 2")]
-    add_third_color = st.checkbox("Add Third Branding Color")
+    add_third_color = st.checkbox("Add 3rd Branding Color")
 if add_third_color:
     branding_colors.append(st.color_picker("Branding Color 3"))
     add_fourth_color = st.checkbox("Add 4th Branding Color")
@@ -95,8 +95,8 @@ if add_third_color:
             branding_colors.append(st.color_picker("Branding Color 5"))
 
 with col2:
-    email_category = st.selectbox("Email Category", ["Apology","Birthday Email","Booking Cancellation","Booking Confirmation","Check-Out Reminder", "Double Opt-In", "F&B", "Feedback Request" , "Informative", "Invitation", "Invoice Email", "Legal Updates",  "Loyalty Offer", "Loyalty Program Presentation", "Mid-stay", "New Level of Loyalty Program", "New Loyalty Member", "Newsletter", "Pre-arrival",  "Spa", "Special Occasions", "Special Offers", "Stay Anniversary", "Welcome Email"])
-    speech_tone = st.selectbox("Speech Tone", ["🤝 Professional", "😊 Friendly", "🎉 Celebratory", "🙏 Apologetic", "💡 Informative", "🌟 Persuasive", "💌 Welcoming", "🥳 Excited", "🛎️ Urgent", "🤗 Appreciative"])
+    email_category = st.selectbox("Email Category", ["Select Your Email Category", "Apology","Birthday Email","Booking Cancellation","Booking Confirmation","Check-Out Reminder", "Double Opt-In", "F&B", "Feedback Request" , "Informative", "Invitation", "Invoice Email", "Legal Updates",  "Loyalty Offer", "Loyalty Program Presentation", "Mid-stay", "New Level of Loyalty Program", "New Loyalty Member", "Newsletter", "Pre-arrival",  "Spa", "Special Occasions", "Special Offers", "Stay Anniversary", "Welcome Email"])
+    speech_tone = st.selectbox("Speech Tone", ["Select Your Email Tone", "🤝 Professional", "😊 Friendly", "🎉 Celebratory", "🙏 Apologetic", "💡 Informative", "🌟 Persuasive", "💌 Welcoming", "🥳 Excited", "🛎️ Urgent", "🤗 Appreciative"])
 email_description = st.text_area("Small Description (Max 200 Characters)", max_chars=200)
 
 
