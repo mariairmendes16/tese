@@ -1,5 +1,7 @@
 import streamlit as st
 import openai
+from bs4 import BeautifulSoup
+
 
 # Retrieve API key from environment variable
 openai.api_key = st.secrets["OPENAI_API_KEY"]
