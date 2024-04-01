@@ -2,13 +2,6 @@ import streamlit as st
 import openai
 from bs4 import BeautifulSoup
 
-html_code = """
-<script type="text/javascript" src="https://plugins.stripo.email/static/latest/stripo.js"></script>
-"""
-
-# Displaying the HTML content in Streamlit
-st.components.v1.html(html_code)
-
 # Retrieve API key from environment variable
 #openai.api_key = st.secrets["OPENAI_API_KEY"]
 
