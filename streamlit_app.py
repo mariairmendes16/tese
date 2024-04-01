@@ -51,7 +51,7 @@ st.title("AI Email Template Generator")
 # Input fields
 col1, col2 = st.columns(2)
 with col1:
-    st.header("Header", divider=True)
+    st.header("Header", divider='grey')
     header_hotel_logo = st.checkbox("Header Hotel Logo")
     header_menu = st.checkbox("Header Menu")
     header_view_in_browser = st.checkbox("View in Browser Link")
@@ -93,7 +93,7 @@ email_description = st.text_area("Small Description (Max 200 Characters)", max_c
 
 
 if st.button("Generate Email Template"):
-    st.subheader("Generated Template, divider='grey')
+    st.subheader("Generated Template", divider='grey')
     generated_header = generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors)
     #generated_content = generate_content(email_category, email_description, branding_colors)
     #generated_footer = generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_social_media, footer_copyrighting_info, footer_unsubscribe_link, branding_colors)
