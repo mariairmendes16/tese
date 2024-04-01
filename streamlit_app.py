@@ -6,42 +6,42 @@ with st.sidebar:
     "[Get an OpenAI API key](https://platform.openai.com/account/api-keys)"
     
 def generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors):
-    response_header = openai.ChatCompletion.create(
-        model="ft:gpt-3.5-turbo-0125:personal:tentativa18:96h7SJau",
-        messages=[
-            {"role": "system", "content": "Generate visually appealing HTML email headers, within a structured layout comprising just the email header, according to the user requirement provided."},
-            {"role": "user","content": f"HOTEL LOGO: {header_hotel_logo}; MENU: {header_menu}; VIEW IN BROWSER LINK: {header_view_in_browser}; BRANDING COLORS: {branding_colors}"},
-        ],
-        temperature=0.4,
-        max_tokens=4096,
-        top_p=0.5,
+    response_header = client.chat.completions.create(
+      model="ft:gpt-3.5-turbo-0125:personal:tentativa18:96h7SJau",
+      messages=[
+        {"role": "system", "content": "Generate visually appealing HTML email headers, within a structured layout comprising just the email header, according to the user requirement provided."},
+        {"role": "user","content": f"HOTEL LOGO: {header_hotel_logo}; MENU: {header_menu}; VIEW IN BROWSER LINK: {header_view_in_browser}; BRANDING COLORS: {branding_colors}"},
+      ],
+      temperature=0.4,
+      max_tokens=4096,
+      top_p=0.5,
     )
     return response_header.choices[0].message['content']
 
 def generate_content(email_category, email_description, branding_colors):
-    response_content = openai.ChatCompletion.create(
-        model="ft:gpt-3.5-turbo-0125:personal:tentativa18:96h7SJau",
-        messages=[
-            {"role": "system",
-            "content": "Generate visually appealing HTML email templates that encompass just the email content, catering to user specifications and ensuring a structured layout for optimal presentation and engagement. Never generate headers or footers."},
-            {"role": "user", "content": f"EMAIL CATEGORY: {email_category} ; SMALL DESCRIPTION: {email_description}; BRANDING COLORS: {branding_colors}; ADDITIONAL NOTES: -"}
-        ],
-        temperature=0.6,
-        max_tokens=4096,
-        top_p=0.7,
+    response_content = client.chat.completions.create(
+      model="ft:gpt-3.5-turbo-0125:personal:tentativa18:96h7SJau",
+      messages=[
+        {"role": "system",
+          "content": "Generate visually appealing HTML email templates that encompass just the email content, catering to user specifications and ensuring a structured layout for optimal presentation and engagement. Never generate headers or footers."},
+        {"role": "user", "content": f"EMAIL CATEGORY: {email_category} ; SMALL DESCRIPTION: {email_description}; BRANDING COLORS: {branding_colors}; ADDITIONAL NOTES: -"}
+      ],
+      temperature=0.6,
+      max_tokens=4096,
+      top_p=0.7,
     )
     return response_content.choices[0].message['content']
 
 def generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_social_media, footer_copyrighting_info, footer_unsubscribe_link, branding_colors):
-    response_footer = openai.ChatCompletion.create(
-        model="ft:gpt-3.5-turbo-0125:personal:tentativa18:96h7SJau",
-        messages=[
-            {"role": "system", "content": "Generate visually appealing HTML email footers, within a structured layout comprising just the email footer, according to the user requirement provided."},
-            {"role": "user", "content": f"HOTEL LOGO: {footer_hotel_logo}; HOTEL INFORMATION: {footer_hotel_info}; MENU: {footer_menu}; SOCIAL MEDIA LINKS: {footer_social_media}; COPYRIGHTING INFORMATION: {footer_copyrighting_info}; UNSUBSCRIBE OPTION: {footer_unsubscribe_link}; BRANDING COLORS: {branding_colors}"}
-        ],
-        temperature=0.2,
-        max_tokens=4096,
-        top_p=0.4,
+    response_footer = client.chat.completions.create(
+      model="ft:gpt-3.5-turbo-0125:personal:tentativa18:96h7SJau",
+      messages=[
+        {"role": "system", "content": "Generate visually appealing HTML email footers, within a structured layout comprising just the email footer, according to the user requirement provided."},
+        {"role": "user", "content": f"HOTEL LOGO: {footer_hotel_logo}; HOTEL INFORMATION: {footer_hotel_info}; MENU: {footer_menu}; SOCIAL MEDIA LINKS: {footer_social_media}; COPYRIGHTING INFORMATION: {footer_copyrighting_info}; UNSUBSCRIBE OPTION: {footer_unsubscribe_link}; BRANDING COLORS: {branding_colors}"}
+      ],
+      temperature=0.2,
+      max_tokens=4096,
+      top_p=0.4,
     )
     return response_footer.choices[0].message['content']
 
@@ -77,10 +77,10 @@ if st.button("Generate Email Template"):
     header_output = generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors)
     st.write(header_output)
 
-    st.subheader("Content")
-    content_output = generate_content(email_category, email_description, branding_colors)
-    st.write(content_output)
+    #st.subheader("Content")
+    #content_output = generate_content(email_category, email_description, branding_colors)
+    #st.write(content_output)
 
-    st.subheader("Footer")
-    footer_output = generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_social_media, footer_copyrighting_info, footer_unsubscribe_link, branding_colors)
-    st.write(footer_output)
+    #st.subheader("Footer")
+    #footer_output = generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_social_media, footer_copyrighting_info, footer_unsubscribe_link, branding_colors)
+    #st.write(footer_output)
