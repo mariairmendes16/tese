@@ -71,9 +71,6 @@ email_category = st.selectbox("Email Category", ["Apology","Birthday Email","Boo
 speech_tone = st.selectbox("Speech Tone", ["🤝 Professional", "😊 Friendly", "🎉 Celebratory", "🙏 Apologetic", "💡 Informative", "🌟 Persuasive", "💌 Welcoming", "🥳 Excited", "🛎️ Urgent", "🤗 Appreciative"])
 email_description = st.text_area("Small Description (Max 200 Characters)", max_chars=200)
 
-if not email_description:
-    st.session_state.text_error = "Please enter your email description."
-    return
 
 # Generate email components
 if st.button("Generate Email Template"):
