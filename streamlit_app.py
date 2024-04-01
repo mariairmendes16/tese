@@ -10,7 +10,7 @@ def rainbow_divider():
             width: 100%;
             height: 1px;
             background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
-            margin: 25px 0;
+            margin: 15px 0;
         }
         </style>
         <div class="rainbow-divider"></div>
