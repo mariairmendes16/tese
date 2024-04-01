@@ -48,20 +48,29 @@ def generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_so
 st.title("AI Email Template Generator")
 
 # Input fields
-header_hotel_logo = st.checkbox("Include Hotel Logo in Header")
-header_menu = st.checkbox("Include Menu in Header")
-header_view_in_browser = st.checkbox("Include View in Browser Link in Header")
-footer_hotel_logo = st.checkbox("Include Hotel Logo in Footer")
-footer_hotel_info = st.checkbox("Include Hotel Information in Footer")
-footer_menu = st.checkbox("Include Menu in Footer")
-footer_social_media = st.checkbox("Include Social Media Links in Footer")
-footer_copyrighting_info = st.checkbox("Include Copyrighting Information in Footer")
-footer_unsubscribe_link = st.checkbox("Include Unsubscribe Link in Footer")
-branding_colors = [st.color_picker("Choose Branding Color 1", '#000000'), st.color_picker("Choose Branding Color 2", '#ffffff'), st.color_picker("Choose Branding Color 3", '#00f900')]
+col1, col2, col3 = st.columns(3)
+with col1:
+    st.header("HEADER")
+    header_hotel_logo = st.checkbox("Include Hotel Logo in Header")
+    header_menu = st.checkbox("Include Menu in Header")
+    header_view_in_browser = st.checkbox("Include View in Browser Link in Header")
 
-email_category = st.selectbox("Email Category", ["Invoice", "Welcome Email", "Pre-Arrival", "Apology", "Informative", "Birthday", "Double Opt-In", "Newsletter"])
+with col2:
+    st.header("FOOTER")
+    footer_hotel_logo = st.checkbox("Include Hotel Logo in Footer")
+    footer_hotel_info = st.checkbox("Include Hotel Information in Footer")
+    footer_menu = st.checkbox("Include Menu in Footer")
+    footer_social_media = st.checkbox("Include Social Media Links in Footer")
+    footer_copyrighting_info = st.checkbox("Include Copyrighting Information in Footer")
+    footer_unsubscribe_link = st.checkbox("Include Unsubscribe Link in Footer")
+
+with col3:
+   st.header("GENERAL SETTINGS")
+    branding_colors = [st.color_picker("Choose Branding Color 1", '#000000'), st.color_picker("Choose Branding Color 2", '#ffffff'), st.color_picker("Choose Branding Color 3", '#00f900')]
+    email_category = st.selectbox("Email Category", ["Invoice", "Welcome Email", "Pre-Arrival", "Apology", "Informative", "Birthday", "Double Opt-In", "Newsletter"])
+    speech_tone = st.selectbox("Speech Tone", ["Formal", "Informal", "Friendly", "Persuasive", "Assertive", "Surprised", "Informative"])
+
 email_description = st.text_area("Small Description (Max 200 Characters)", max_chars=200)
-speech_tone = st.selectbox("Speech Tone", ["Formal", "Informal", "Friendly", "Persuasive", "Assertive", "Surprised", "Informative"])
 
 # Generate email components
 if st.button("Generate Email Template"):
