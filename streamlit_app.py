@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 # Retrieve API key from environment variable
 #openai.api_key = st.secrets["OPENAI_API_KEY"]
 
+# Backend functions
 def generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors):
     response_header = openai.ChatCompletion.create(
       model="ft:gpt-3.5-turbo-0125:personal:tentativa18:96h7SJau",
@@ -71,7 +72,13 @@ st.header("General Settings")
 st.divider()
 col1, col2 = st.columns(2)
 with col1:
-    branding_colors = [st.color_picker("Branding Color 1"), st.color_picker("Branding Color 2"), st.color_picker("Branding Color 3")]
+    branding_colors = [st.color_picker("Branding Color 1"), st.color_picker("Branding Color 2")]
+    add_third_color = st.checkbox("Add Third Branding Color")
+if add_third_color:
+    branding_colors.append(st.color_picker("Branding Color 3"))
+add_fourth_color = st.checkbox("Add Fourth Branding Color")
+if add_fourth_color:
+    branding_colors.append(st.color_picker("Branding Color 4"))
 
 with col2:
     email_category = st.selectbox("Email Category", ["Apology","Birthday Email","Booking Cancellation","Booking Confirmation","Check-Out Reminder", "Double Opt-In", "F&B", "Feedback Request" , "Informative", "Invitation", "Invoice Email", "Legal Updates",  "Loyalty Offer", "Loyalty Program Presentation", "Mid-stay", "New Level of Loyalty Program", "New Loyalty Member", "Newsletter", "Pre-arrival",  "Spa", "Special Occasions", "Special Offers", "Stay Anniversary", "Welcome Email"])
