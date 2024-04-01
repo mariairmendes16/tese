@@ -101,11 +101,11 @@ with col1:
 
 with col2:
     st.markdown("##### 📧 Email Category")
-    email_category = st.selectbox("", ("Apology","Birthday Email","Booking Cancellation","Booking Confirmation","Check-Out Reminder", "Double Opt-In", "F&B", "Feedback Request" , "Informative", "Invitation", "Invoice Email", "Legal Updates",  "Loyalty Offer", "Loyalty Program Presentation", "Mid-stay", "New Level of Loyalty Program", "New Loyalty Member", "Newsletter", "Pre-arrival",  "Spa", "Special Occasions", "Special Offers", "Stay Anniversary", "Welcome Email"), index=None, placeholder="Select email category...")
     category_error_placeholder = st.empty()
+    email_category = st.selectbox("", ("Apology","Birthday Email","Booking Cancellation","Booking Confirmation","Check-Out Reminder", "Double Opt-In", "F&B", "Feedback Request" , "Informative", "Invitation", "Invoice Email", "Legal Updates",  "Loyalty Offer", "Loyalty Program Presentation", "Mid-stay", "New Level of Loyalty Program", "New Loyalty Member", "Newsletter", "Pre-arrival",  "Spa", "Special Occasions", "Special Offers", "Stay Anniversary", "Welcome Email"), index=None, placeholder="Select email category...")
     st.markdown("##### 🗣️ Speech Tone")
-    speech_tone = st.selectbox("", ("🤝 Professional", "😊 Friendly", "🎉 Celebratory", "🙏 Apologetic", "💡 Informative", "🌟 Persuasive", "💌 Welcoming", "🥳 Excited", "🛎️ Urgent", "🤗 Appreciative"), index=None, placeholder="Select speech tone...")
     tone_error_placeholder = st.empty()
+    speech_tone = st.selectbox("", ("🤝 Professional", "😊 Friendly", "🎉 Celebratory", "🙏 Apologetic", "💡 Informative", "🌟 Persuasive", "💌 Welcoming", "🥳 Excited", "🛎️ Urgent", "🤗 Appreciative"), index=None, placeholder="Select speech tone...")
 st.markdown("##### 📝 Email Description")
 email_description = st.text_area("(Max 200 Characters)", max_chars=200, placeholder="Please insert email description here.")
 description_error_placeholder = st.empty()
