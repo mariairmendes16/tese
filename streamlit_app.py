@@ -76,8 +76,8 @@ with col1:
     add_third_color = st.checkbox("Add Third Branding Color")
 if add_third_color:
     branding_colors.append(st.color_picker("Branding Color 3"))
-add_fourth_color = st.checkbox("Add Fourth Branding Color")
-if add_fourth_color:
+    add_fourth_color = st.checkbox("Add Fourth Branding Color")
+    if add_fourth_color:
     branding_colors.append(st.color_picker("Branding Color 4"))
 
 with col2:
