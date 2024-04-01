@@ -75,12 +75,12 @@ email_description = st.text_area("Small Description (Max 200 Characters)", max_c
 if st.button("Generate Email Template"):
     st.subheader("Header")
     header_output = generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors)
-    st.write(header_output)
+    st.write(header_output, unsafe_allow_html=True)  # Allow HTML rendering
 
     #st.subheader("Content")
     #content_output = generate_content(email_category, email_description, branding_colors)
-    #st.write(content_output)
+    #st.write(content_output, unsafe_allow_html=True)  # Allow HTML rendering
 
     #st.subheader("Footer")
     #footer_output = generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_social_media, footer_copyrighting_info, footer_unsubscribe_link, branding_colors)
-    #st.write(footer_output)
+    #st.write(footer_output, unsafe_allow_html=True)  # Allow HTML rendering
