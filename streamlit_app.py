@@ -94,7 +94,7 @@ email_description = st.text_area("Small Description (Max 200 Characters)", max_c
 
 
 if st.button("Generate Email Template"):
-    # Generate header, content, and footer
+    st.subheader("Generated Template")
     generated_header = generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors)
     #generated_content = generate_content(email_category, email_description, branding_colors)
     #generated_footer = generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_social_media, footer_copyrighting_info, footer_unsubscribe_link, branding_colors)
@@ -299,4 +299,5 @@ if st.button("Generate Email Template"):
     populated_template = soup.prettify()
 
     # Display the populated HTML template in Streamlit
-    st.markdown(populated_template, unsafe_allow_html=True)
+    st.write(populated_template)
+    st.write(populated_template, unsafe_allow_html=True)
