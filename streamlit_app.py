@@ -1,77 +1,78 @@
 import streamlit as st
-from langchain import LangChain  # Assuming you have LangChain installed
-from openai import OpenAI  # Assuming you have OpenAI API access
+import openai
 
-# Initialize LangChain and OpenAI API
-langchain = LangChain()
-openai_api = OpenAI(api_key="YOUR_OPENAI_API_KEY")
+# Set up OpenAI API key
+openai.api_key = "your_openai_api_key_here"
 
-# Streamlit app layout
-st.title("HTML Email Template Generator")
+def generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors):
+    response_header = openai.ChatCompletion.create(
+        model="ft:gpt-3.5-turbo-0125:personal:tentativa18:96h7SJau",
+        messages=[
+            {"role": "system", "content": "Generate visually appealing HTML email headers, within a structured layout comprising just the email header, according to the user requirement provided."},
+            {"role": "user","content": f"HOTEL LOGO: {header_hotel_logo}; MENU: {header_menu}; VIEW IN BROWSER LINK: {header_view_in_browser}; BRANDING COLORS: {branding_colors}"},
+        ],
+        temperature=0.4,
+        max_tokens=4096,
+        top_p=0.5,
+    )
+    return response_header.choices[0].message['content']
 
-# User inputs for header section
-st.header("Header Section")
-hotel_logotype = st.checkbox("Hotel Logotype")
-menu = st.checkbox("Menu")
-social_media_links = st.checkbox("Social Media Links")
-view_in_browser_link = st.checkbox("View in Browser Link")
+def generate_content(email_category, email_description, branding_colors):
+    response_content = openai.ChatCompletion.create(
+        model="ft:gpt-3.5-turbo-0125:personal:tentativa18:96h7SJau",
+        messages=[
+            {"role": "system",
+            "content": "Generate visually appealing HTML email templates that encompass just the email content, catering to user specifications and ensuring a structured layout for optimal presentation and engagement. Never generate headers or footers."},
+            {"role": "user", "content": f"EMAIL CATEGORY: {email_category} ; SMALL DESCRIPTION: {email_description}; BRANDING COLORS: {branding_colors}; ADDITIONAL NOTES: -"}
+        ],
+        temperature=0.6,
+        max_tokens=4096,
+        top_p=0.7,
+    )
+    return response_content.choices[0].message['content']
 
-# User inputs for content section
-st.header("Content Section")
-email_category = st.selectbox("Email Category", [
-    "Apology", "Birthday Email", "Booking Cancellation", "Booking Confirmation",
-    "Check-Out Reminder", "Double Opt-In", "F&B", "Feedback Request",
-    "Informative", "Invitation", "Invoice Email", "Legal Updates",
-    "Loyalty Offer", "Loyalty Program Presentation", "Mid-stay",
-    "New Level of Loyalty Program", "New Loyalty Member", "Newsletter",
-    "Pre-arrival", "Spa", "Special Occasions", "Special Offers",
-    "Stay Anniversary", "Welcome Email"
-])
-small_description = st.text_input("Small Description", max_chars=200)
+def generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_social_media, footer_copyrighting_info, footer_unsubscribe_link, branding_colors):
+    response_footer = openai.ChatCompletion.create(
+        model="ft:gpt-3.5-turbo-0125:personal:tentativa18:96h7SJau",
+        messages=[
+            {"role": "system", "content": "Generate visually appealing HTML email footers, within a structured layout comprising just the email footer, according to the user requirement provided."},
+            {"role": "user", "content": f"HOTEL LOGO: {footer_hotel_logo}; HOTEL INFORMATION: {footer_hotel_info}; MENU: {footer_menu}; SOCIAL MEDIA LINKS: {footer_social_media}; COPYRIGHTING INFORMATION: {footer_copyrighting_info}; UNSUBSCRIBE OPTION: {footer_unsubscribe_link}; BRANDING COLORS: {branding_colors}"}
+        ],
+        temperature=0.2,
+        max_tokens=4096,
+        top_p=0.4,
+    )
+    return response_footer.choices[0].message['content']
 
-# User inputs for footer section
-st.header("Footer Section")
-footer_hotel_logotype = st.checkbox("Hotel Logotype")
-hotel_information = st.checkbox("Hotel Information")
-footer_menu = st.checkbox("Menu")
-footer_social_media_links = st.checkbox("Social Media Links")
-copyrighting_information = st.checkbox("Copyrighting Information")
+# Streamlit UI
+st.title("AI Email Template Generator")
 
-# General requirements
-st.header("General Requirements")
-additional_notes = st.text_input("Additional Notes", max_chars=100)
-branding_colors = st.text_input("Branding Colors", "Color1; Color2; Color3")
+# Input fields
+header_hotel_logo = st.checkbox("Include Hotel Logo in Header")
+header_menu = st.checkbox("Include Menu in Header")
+header_view_in_browser = st.checkbox("Include View in Browser Link in Header")
+footer_hotel_logo = st.checkbox("Include Hotel Logo in Footer")
+footer_hotel_info = st.checkbox("Include Hotel Information in Footer")
+footer_menu = st.checkbox("Include Menu in Footer")
+footer_social_media = st.checkbox("Include Social Media Links in Footer")
+footer_copyrighting_info = st.checkbox("Include Copyrighting Information in Footer")
+footer_unsubscribe_link = st.checkbox("Include Unsubscribe Link in Footer")
+branding_colors = st.color_picker("Choose Branding Colors", ["#ffffff", "#000000", "#ff0000"])
 
-# Button to generate HTML email template
-if st.button("Generate HTML Email Template"):
-    # Prepare input data for LangChain model
-    input_data = {
-        "header": {
-            "hotel_logotype": hotel_logotype,
-            "menu": menu,
-            "social_media_links": social_media_links,
-            "view_in_browser_link": view_in_browser_link
-        },
-        "content": {
-            "email_category": email_category,
-            "small_description": small_description
-        },
-        "footer": {
-            "hotel_logotype": footer_hotel_logotype,
-            "hotel_information": hotel_information,
-            "menu": footer_menu,
-            "social_media_links": footer_social_media_links,
-            "copyrighting_information": copyrighting_information
-        },
-        "general_requirements": {
-            "additional_notes": additional_notes,
-            "branding_colors": branding_colors
-        }
-    }
-    
-    # Generate HTML email template using LangChain and OpenAI
-    generated_template = langchain.generate(input_data, model=openai_api)
-    
-    # Display generated HTML email template
-    st.write("Generated HTML Email Template:")
-    st.code(generated_template)
+email_category = st.selectbox("Email Category", ["Invoice", "Welcome Email", "Pre-Arrival", "Apology", "Informative", "Birthday", "Double Opt-In", "Newsletter"])
+email_description = st.text_area("Small Description (Max 200 Characters)", max_chars=200)
+speech_tone = st.selectbox("Speech Tone", ["Formal", "Informal", "Friendly", "Persuasive", "Assertive", "Surprised", "Informative"])
+
+# Generate email components
+if st.button("Generate Email Template"):
+    st.subheader("Header")
+    header_output = generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors)
+    st.write(header_output)
+
+    st.subheader("Content")
+    content_output = generate_content(email_category, email_description, branding_colors)
+    st.write(content_output)
+
+    st.subheader("Footer")
+    footer_output = generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_social_media, footer_copyrighting_info, footer_unsubscribe_link, branding_colors)
+    st.write(footer_output)
