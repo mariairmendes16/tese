@@ -66,6 +66,7 @@ with col1:
     header_hotel_logo = st.checkbox("Header Hotel Logo")
     header_menu = st.checkbox("Header Menu")
     header_view_in_browser = st.checkbox("View in Browser Link")
+    header_error_placeholder = st.empty()
 
 with col2:
     st.header('Footer')
@@ -77,6 +78,8 @@ with col2:
     footer_social_media = st.checkbox("Social Media Links")
     footer_copyrighting_info = st.checkbox("Copyrighting Information")
     footer_unsubscribe_link = st.checkbox("Unsubscribe Link")
+    footer_error_placeholder = st.empty()
+
 
 st.header("General Settings")
 st.caption('Please provide more details about your email.')
@@ -96,25 +99,29 @@ if add_third_color:
 
 with col2:
     email_category = st.selectbox("Email Category", ("Apology","Birthday Email","Booking Cancellation","Booking Confirmation","Check-Out Reminder", "Double Opt-In", "F&B", "Feedback Request" , "Informative", "Invitation", "Invoice Email", "Legal Updates",  "Loyalty Offer", "Loyalty Program Presentation", "Mid-stay", "New Level of Loyalty Program", "New Loyalty Member", "Newsletter", "Pre-arrival",  "Spa", "Special Occasions", "Special Offers", "Stay Anniversary", "Welcome Email"), index=None, placeholder="Select email category...")
+    category_error_placeholder = st.empty()
     speech_tone = st.selectbox("Speech Tone", ("🤝 Professional", "😊 Friendly", "🎉 Celebratory", "🙏 Apologetic", "💡 Informative", "🌟 Persuasive", "💌 Welcoming", "🥳 Excited", "🛎️ Urgent", "🤗 Appreciative"), index=None, placeholder="Select speech tone...")
+    tone_error_placeholder = st.empty()
 email_description = st.text_area("Small Description (Max 200 Characters)", max_chars=200, placeholder="Please insert email description here.")
-
+description_error_placeholder = st.empty()
 
 if st.button("Generate Email Template"):
     errors = []
     if not (header_hotel_logo or header_menu or header_view_in_browser):
-        errors.append("Please select at least one option for the header.")
+        header_error_placeholder.error("Please select at least one option for the header.")
+        errors.append("Header options are required.")
     if not (footer_hotel_logo or footer_hotel_info or footer_menu or footer_social_media or footer_copyrighting_info or footer_unsubscribe_link):
-        errors.append("Please select at least one option for the footer.")
-    if email_category is None:
-        errors.append("Please choose an email category.")
-    if speech_tone is None:
-        errors.append("Please choose a speech tone.")
+        footer_error_placeholder.error("Please select at least one option for the footer.")
+        errors.append("Footer options are required.")
+    if email_category == "NONE":
+        category_error_placeholder.error("Please choose an email category.")
+        errors.append("Email category is required.")
+    if speech_tone == "NONE":
+        tone_error_placeholder.error("Please choose a speech tone.")
+        errors.append("Speech tone is required.")
     if not email_description.strip():
-        errors.append("Please provide a small description for the email.")
-
-    if errors:
-        st.error("\n".join(errors))
+        description_error_placeholder.error("Please provide a small description for the email.")
+        errors.append("Email description is required.")
 
 else:
     st.subheader("Generated Template")
