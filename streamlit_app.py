@@ -100,7 +100,6 @@ if add_third_color:
             branding_colors.append(st.color_picker("Branding Color 5️⃣"))
 
 with col2:
-    label_visibility 
     email_category = st.selectbox("", ("Apology","Birthday Email","Booking Cancellation","Booking Confirmation","Check-Out Reminder", "Double Opt-In", "F&B", "Feedback Request" , "Informative", "Invitation", "Invoice Email", "Legal Updates",  "Loyalty Offer", "Loyalty Program Presentation", "Mid-stay", "New Level of Loyalty Program", "New Loyalty Member", "Newsletter", "Pre-arrival",  "Spa", "Special Occasions", "Special Offers", "Stay Anniversary", "Welcome Email"), index=None, placeholder="Select email category...")
     category_error_placeholder = st.empty()
     speech_tone = st.selectbox("🗣️ Speech Tone", ("🤝 Professional", "😊 Friendly", "🎉 Celebratory", "🙏 Apologetic", "💡 Informative", "🌟 Persuasive", "💌 Welcoming", "🥳 Excited", "🛎️ Urgent", "🤗 Appreciative"), index=None, placeholder="Select speech tone...")
