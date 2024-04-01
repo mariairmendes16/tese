@@ -76,9 +76,12 @@ with col1:
     add_third_color = st.checkbox("Add Third Branding Color")
 if add_third_color:
     branding_colors.append(st.color_picker("Branding Color 3"))
-    add_fourth_color = st.checkbox("Add Fourth Branding Color")
+    add_fourth_color = st.checkbox("Add 4th Branding Color")
     if add_fourth_color:
         branding_colors.append(st.color_picker("Branding Color 4"))
+        add_fifth_color = st.checkbox("Add 5th Branding Color")
+        if add_fifth_color:
+            branding_colors.append(st.color_picker("Branding Color 5"))
 
 with col2:
     email_category = st.selectbox("Email Category", ["Apology","Birthday Email","Booking Cancellation","Booking Confirmation","Check-Out Reminder", "Double Opt-In", "F&B", "Feedback Request" , "Informative", "Invitation", "Invoice Email", "Legal Updates",  "Loyalty Offer", "Loyalty Program Presentation", "Mid-stay", "New Level of Loyalty Program", "New Loyalty Member", "Newsletter", "Pre-arrival",  "Spa", "Special Occasions", "Special Offers", "Stay Anniversary", "Welcome Email"])
