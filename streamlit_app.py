@@ -116,7 +116,7 @@ if st.button("Generate Email Template"):
     if errors:
         st.error("\n".join(errors))
 
-   else:
+else:
         st.button("Generate Email Template"):
         st.subheader("Generated Template")
         #generated_header = generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors)
