@@ -113,17 +113,17 @@ description_error_placeholder = st.empty()
 if st.button("Generate Email Template"):
     errors = []
     if not (header_hotel_logo or header_menu or header_view_in_browser):
-        header_error_placeholder.error("Please select at least one option for the header.", icon="⚠️")
+        header_error_placeholder.error("Please select at least one option for the header.", icon="🚨")
     if not (footer_hotel_logo or footer_hotel_info or footer_menu or footer_social_media or footer_copyrighting_info or footer_unsubscribe_link):
-        footer_error_placeholder.error("Please select at least one option for the footer.", icon="⚠️")
+        footer_error_placeholder.error("Please select at least one option for the footer.", icon="🚨")
     if email_category is None:
-        category_error_placeholder.error("Please choose an email category.", icon="⚠️")
+        category_error_placeholder.error("Please choose an email category.", icon="🚨")
     if speech_tone is None:
-        tone_error_placeholder.error("Please choose a speech tone.", icon="⚠️")
+        tone_error_placeholder.error("Please choose a speech tone.", icon="🚨")
     if not email_description.strip():
-        description_error_placeholder.error("Please provide a small description for the email.", icon="⚠️")
+        description_error_placeholder.error("Please provide a small description for the email.", icon="🚨")
     if len(set(branding_colors)) < len(branding_colors):
-        branding_colors_placeholder.error("Please choose unique colors .", icon="⚠️")
+        branding_colors_placeholder.error("Please choose unique colors .", icon="🚨")
 
     else:
         st.subheader("Generated Template")
