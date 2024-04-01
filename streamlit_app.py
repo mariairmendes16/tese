@@ -99,75 +99,54 @@ with col2:
     speech_tone = st.selectbox("Speech Tone", ("🤝 Professional", "😊 Friendly", "🎉 Celebratory", "🙏 Apologetic", "💡 Informative", "🌟 Persuasive", "💌 Welcoming", "🥳 Excited", "🛎️ Urgent", "🤗 Appreciative"), index=None, placeholder="Select speech tone...")
 email_description = st.text_area("Small Description (Max 200 Characters)", max_chars=200, placeholder="Please insert email description here.")
 
-# Generate email template function
-def generate_email_template():
-    errors = []
 
+if st.button("Generate Email Template"):
+    errors = []
     if not (header_hotel_logo or header_menu or header_view_in_browser):
         errors.append("Please select at least one option for the header.")
-
     if not (footer_hotel_logo or footer_hotel_info or footer_menu or footer_social_media or footer_copyrighting_info or footer_unsubscribe_link):
         errors.append("Please select at least one option for the footer.")
-
     if email_category is None:
-        errors.append("Please select an email category.")
-
+        errors.append("Please choose an email category.")
     if speech_tone is None:
-        errors.append("Please select a speech tone.")
-
-    if not email_description:
-        errors.append("Please provide a description for the email.")
+        errors.append("Please choose a speech tone.")
+    if not email_description.strip():
+        errors.append("Please provide a small description for the email.")
 
     if errors:
         st.error("\n".join(errors))
-        return
 
-# Generate email components
-#if st.button("Generate Email Template"):
-    #st.subheader("Header")
-    #header_output = generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors)
-    #st.write(header_output)
-    #st.write (header_output, unsafe_allow_html=True) # Allow HTML rendering
-
-    #st.subheader("Content")
-    #content_output = generate_content(email_category, email_description, branding_colors)
-    #st.write(content_output, unsafe_allow_html=True)  # Allow HTML rendering
-
-    #st.subheader("Footer")
-    #footer_output = generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_social_media, footer_copyrighting_info, footer_unsubscribe_link, branding_colors)
-    #st.write(footer_output, unsafe_allow_html=True)  # Allow HTML rendering
-
-
-if st.button("Generate Email Template"):
-    st.subheader("Generated Template")
-    #generated_header = generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors)
-    #generated_content = generate_content(email_category, email_description, branding_colors)
-    #generated_footer = generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_social_media, footer_copyrighting_info, footer_unsubscribe_link, branding_colors)
+   else:
+        st.button("Generate Email Template"):
+        st.subheader("Generated Template")
+        #generated_header = generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors)
+        #generated_content = generate_content(email_category, email_description, branding_colors)
+        #generated_footer = generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_social_media, footer_copyrighting_info, footer_unsubscribe_link, branding_colors)
     
-    # Parse the HTML Empty Template
-    #empty_template = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office"> <head> <meta charset="UTF-8"> <meta content="width=device-width, initial-scale=1" name="viewport"> <meta name="x-apple-disable-message-reformatting"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta content="telephone=no" name="format-detection"> <title></title> <!--[if (mso 16)]> <style type="text/css"> a {text-decoration: none;} </style> <![endif]--> <!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]--> <!--[if gte mso 9]> <xml> <o:OfficeDocumentSettings> <o:AllowPNG></o:AllowPNG> <o:PixelsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettings> </xml> <![endif]--> </head> <body> <div dir="ltr" class="es-wrapper-color"> <!--[if gte mso 9]> <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t"> <v:fill type="tile" color="#f6f6f6"></v:fill> </v:background> <![endif]--> <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0"> <tbody> <tr> <td class="esd-email-paddings" valign="top"> <table class="esd-header-popover es-header" cellspacing="0" cellpadding="0" align="center"> <tbody> <tr> <td class="esd-stripe" align="center"> <table class="es-header-body" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center"> <tbody> <tr> <td class="es-p20t es-p20r es-p20l esd-structure" align="left"> <!--[if mso]><table width="560" cellpadding="0" cellspacing="0"><tr><td width="180" valign="top"><![endif]--> <table class="es-left" cellspacing="0" cellpadding="0" align="left"> <tbody> <tr> <td class="es-m-p0r es-m-p20b esd-container-frame" width="180" valign="top" align="center"> <table width="100%" cellspacing="0" cellpadding="0"> <tbody> <tr> <td class="esd-empty-container" style="display: none;" align="center"></td> </tr> </tbody> </table> </td> </tr> </tbody> </table> <!--[if mso]></td><td width="20"></td><td width="360" valign="top"><![endif]--> <table class="es-right" cellspacing="0" cellpadding="0" align="right"> <tbody> <tr> <td class="esd-container-frame" width="360" align="left"> <table width="100%" cellspacing="0" cellpadding="0"> <tbody> <tr> <td class="esd-empty-container" style="display: none;" align="center"></td> </tr> </tbody> </table> </td> </tr> </tbody> </table> <!--[if mso]></td></tr></table><![endif]--> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> <table class="es-content" cellspacing="0" cellpadding="0" align="center"> <tbody> <tr> <td class="esd-stripe" align="center"> <table class="es-content-body" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center"> <tbody> <tr> <td class="es-p20t es-p20r es-p20l esd-structure" align="left"> <table width="100%" cellspacing="0" cellpadding="0"> <tbody> <tr> <td class="esd-container-frame" width="560" valign="top" align="center"> <table width="100%" cellspacing="0" cellpadding="0"> <tbody> <tr> <td class="esd-empty-container" style="display: none;" align="center"></td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> <table class="esd-footer-popover es-footer" cellspacing="0" cellpadding="0" align="center"> <tbody> <tr> <td class="esd-stripe" align="center"> <table class="es-footer-body" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center"> <tbody> <tr> <td class="esd-structure es-p20t es-p20b es-p20r es-p20l" align="left"> <!--[if mso]><table width="560" cellpadding="0" cellspacing="0"><tr><td width="270" valign="top"><![endif]--> <table class="es-left" cellspacing="0" cellpadding="0" align="left"> <tbody> <tr> <td class="es-m-p20b esd-container-frame" width="270" align="left"> <table width="100%" cellspacing="0" cellpadding="0"> <tbody> <tr> <td class="esd-empty-container" style="display: none;" align="center"></td> </tr> </tbody> </table> </td> </tr> </tbody> </table> <!--[if mso]></td><td width="20"></td><td width="270" valign="top"><![endif]--> <table class="es-right" cellspacing="0" cellpadding="0" align="right"> <tbody> <tr> <td class="esd-container-frame" width="270" align="left"> <table width="100%" cellspacing="0" cellpadding="0"> <tbody> <tr> <td class="esd-empty-container" style="display: none;" align="center"></td> </tr> </tbody> </table> </td> </tr> </tbody> </table> <!--[if mso]></td></tr></table><![endif]--> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </div> </body> </html>"""
-    #soup = BeautifulSoup(empty_template, 'html.parser')
+        # Parse the HTML Empty Template
+        #empty_template = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office"> <head> <meta charset="UTF-8"> <meta content="width=device-width, initial-scale=1" name="viewport"> <meta name="x-apple-disable-message-reformatting"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta content="telephone=no" name="format-detection"> <title></title> <!--[if (mso 16)]> <style type="text/css"> a {text-decoration: none;} </style> <![endif]--> <!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]--> <!--[if gte mso 9]> <xml> <o:OfficeDocumentSettings> <o:AllowPNG></o:AllowPNG> <o:PixelsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettings> </xml> <![endif]--> </head> <body> <div dir="ltr" class="es-wrapper-color"> <!--[if gte mso 9]> <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t"> <v:fill type="tile" color="#f6f6f6"></v:fill> </v:background> <![endif]--> <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0"> <tbody> <tr> <td class="esd-email-paddings" valign="top"> <table class="esd-header-popover es-header" cellspacing="0" cellpadding="0" align="center"> <tbody> <tr> <td class="esd-stripe" align="center"> <table class="es-header-body" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center"> <tbody> <tr> <td class="es-p20t es-p20r es-p20l esd-structure" align="left"> <!--[if mso]><table width="560" cellpadding="0" cellspacing="0"><tr><td width="180" valign="top"><![endif]--> <table class="es-left" cellspacing="0" cellpadding="0" align="left"> <tbody> <tr> <td class="es-m-p0r es-m-p20b esd-container-frame" width="180" valign="top" align="center"> <table width="100%" cellspacing="0" cellpadding="0"> <tbody> <tr> <td class="esd-empty-container" style="display: none;" align="center"></td> </tr> </tbody> </table> </td> </tr> </tbody> </table> <!--[if mso]></td><td width="20"></td><td width="360" valign="top"><![endif]--> <table class="es-right" cellspacing="0" cellpadding="0" align="right"> <tbody> <tr> <td class="esd-container-frame" width="360" align="left"> <table width="100%" cellspacing="0" cellpadding="0"> <tbody> <tr> <td class="esd-empty-container" style="display: none;" align="center"></td> </tr> </tbody> </table> </td> </tr> </tbody> </table> <!--[if mso]></td></tr></table><![endif]--> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> <table class="es-content" cellspacing="0" cellpadding="0" align="center"> <tbody> <tr> <td class="esd-stripe" align="center"> <table class="es-content-body" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center"> <tbody> <tr> <td class="es-p20t es-p20r es-p20l esd-structure" align="left"> <table width="100%" cellspacing="0" cellpadding="0"> <tbody> <tr> <td class="esd-container-frame" width="560" valign="top" align="center"> <table width="100%" cellspacing="0" cellpadding="0"> <tbody> <tr> <td class="esd-empty-container" style="display: none;" align="center"></td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> <table class="esd-footer-popover es-footer" cellspacing="0" cellpadding="0" align="center"> <tbody> <tr> <td class="esd-stripe" align="center"> <table class="es-footer-body" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center"> <tbody> <tr> <td class="esd-structure es-p20t es-p20b es-p20r es-p20l" align="left"> <!--[if mso]><table width="560" cellpadding="0" cellspacing="0"><tr><td width="270" valign="top"><![endif]--> <table class="es-left" cellspacing="0" cellpadding="0" align="left"> <tbody> <tr> <td class="es-m-p20b esd-container-frame" width="270" align="left"> <table width="100%" cellspacing="0" cellpadding="0"> <tbody> <tr> <td class="esd-empty-container" style="display: none;" align="center"></td> </tr> </tbody> </table> </td> </tr> </tbody> </table> <!--[if mso]></td><td width="20"></td><td width="270" valign="top"><![endif]--> <table class="es-right" cellspacing="0" cellpadding="0" align="right"> <tbody> <tr> <td class="esd-container-frame" width="270" align="left"> <table width="100%" cellspacing="0" cellpadding="0"> <tbody> <tr> <td class="esd-empty-container" style="display: none;" align="center"></td> </tr> </tbody> </table> </td> </tr> </tbody> </table> <!--[if mso]></td></tr></table><![endif]--> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </div> </body> </html>"""
+        #soup = BeautifulSoup(empty_template, 'html.parser')
 
-    # Find all occurrences of elements with the class 'esd-stripe'
-    #esd_stripe_elements = soup.find_all(class_='esd-stripe')
+        # Find all occurrences of elements with the class 'esd-stripe'
+        #esd_stripe_elements = soup.find_all(class_='esd-stripe')
 
-    # Select the first occurrence - Header
-    #first_esd_stripe = esd_stripe_elements[0]
-    #first_esd_stripe.replace_with(BeautifulSoup(generated_header, 'html.parser'))
+        # Select the first occurrence - Header
+        #first_esd_stripe = esd_stripe_elements[0]
+        #first_esd_stripe.replace_with(BeautifulSoup(generated_header, 'html.parser'))
 
-    # Select the second occurrence - Content
-    #second_esd_stripe = esd_stripe_elements[1]
-    #second_esd_stripe.replace_with(BeautifulSoup(generated_content, 'html.parser'))
+        # Select the second occurrence - Content
+        #second_esd_stripe = esd_stripe_elements[1]
+        #second_esd_stripe.replace_with(BeautifulSoup(generated_content, 'html.parser'))
 
-    # Select the third occurrence - Footer
-    #third_esd_stripe = esd_stripe_elements[2]
-    #third_esd_stripe.replace_with(BeautifulSoup(generated_footer, 'html.parser'))
+        # Select the third occurrence - Footer
+        #third_esd_stripe = esd_stripe_elements[2]
+        #third_esd_stripe.replace_with(BeautifulSoup(generated_footer, 'html.parser'))
 
-    # Convert the populated HTML template to a string
-    #populated_template = soup.prettify()
+        # Convert the populated HTML template to a string
+        #populated_template = soup.prettify()
 
-    # Display the populated HTML template in Streamlit
-    #st.write(populated_template, unsafe_allow_html=True)
-    #st.subheader('Generated HTML')
-    #st.write(populated_template)
+        # Display the populated HTML template in Streamlit
+        #st.write(populated_template, unsafe_allow_html=True)
+        #st.subheader('Generated HTML')
+        #st.write(populated_template)
 
