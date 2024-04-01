@@ -111,6 +111,10 @@ if st.button("Generate Email Template"):
         header_error_placeholder.error("Please select at least one option for the header.")
     if not (footer_hotel_logo or footer_hotel_info or footer_menu or footer_social_media or footer_copyrighting_info or footer_unsubscribe_link):
         footer_error_placeholder.error("Please select at least one option for the footer.")
+    black_count = sum(1 for color in branding_colors if color == "#000000")
+    if black_count > 1:
+        branding_error_placeholder.error("Only one branding color can be black.")
+        errors.append("More than one branding color is set to black.")
     if email_category is None:
         category_error_placeholder.error("Please choose an email category.")
     if speech_tone is None:
