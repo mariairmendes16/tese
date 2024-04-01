@@ -51,13 +51,13 @@ st.title("AI Email Template Generator")
 # Input fields
 col1, col2 = st.columns(2)
 with col1:
-    st.header("Header")
+    st.header("Header", divider='grey')
     header_hotel_logo = st.checkbox("Header Hotel Logo")
     header_menu = st.checkbox("Header Menu")
     header_view_in_browser = st.checkbox("View in Browser Link")
 
 with col2:
-    st.header("Footer")
+    st.header("Footer", divider='grey')
     footer_hotel_logo = st.checkbox("Footer Hotel Logo")
     footer_hotel_info = st.checkbox("Hotel Information")
     footer_menu = st.checkbox("Footer Menu")
@@ -65,7 +65,7 @@ with col2:
     footer_copyrighting_info = st.checkbox("Copyrighting Information")
     footer_unsubscribe_link = st.checkbox("Unsubscribe Link")
 
-st.header("General Settings")
+st.header("General Settings", divider='grey')
 col1, col2 = st.columns(2)
 with col1:
     branding_colors = [st.color_picker("Branding Color 1"), st.color_picker("Branding Color 2"), st.color_picker("Branding Color 3")]
@@ -93,7 +93,7 @@ email_description = st.text_area("Small Description (Max 200 Characters)", max_c
 
 
 if st.button("Generate Email Template"):
-    st.subheader("Generated Template")
+    st.subheader("Generated Template, divider='grey')
     generated_header = generate_header(header_hotel_logo, header_menu, header_view_in_browser, branding_colors)
     #generated_content = generate_content(email_category, email_description, branding_colors)
     #generated_footer = generate_footer(footer_hotel_logo, footer_hotel_info, footer_menu, footer_social_media, footer_copyrighting_info, footer_unsubscribe_link, branding_colors)
