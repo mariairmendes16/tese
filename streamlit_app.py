@@ -61,7 +61,7 @@ st.title("AI Email Template Generator")
 col1, col2 = st.columns(2)
 with col1:
     st.header('Header')
-    st.caption('Please select what you want to include')
+    st.caption('Please select what you want to include.')
     blue_divider()
     header_hotel_logo = st.checkbox("Header Hotel Logo")
     header_menu = st.checkbox("Header Menu")
@@ -69,7 +69,7 @@ with col1:
 
 with col2:
     st.header('Footer')
-    st.caption('Please select what you want to include')
+    st.caption('Please select what you want to include.')
     blue_divider()
     footer_hotel_logo = st.checkbox("Footer Hotel Logo")
     footer_hotel_info = st.checkbox("Hotel Information")
@@ -79,7 +79,8 @@ with col2:
     footer_unsubscribe_link = st.checkbox("Unsubscribe Link")
 
 st.header("General Settings")
-st.divider()
+st.caption('Please provide more details about your email.')
+blue_divider()
 col1, col2 = st.columns(2)
 with col1:
     branding_colors = [st.color_picker("Branding Color 1"), st.color_picker("Branding Color 2")]
