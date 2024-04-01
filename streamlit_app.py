@@ -65,7 +65,7 @@ with col2:
     footer_copyrighting_info = st.checkbox("Copyrighting Information")
     footer_unsubscribe_link = st.checkbox("Unsubscribe Link")
 
-st.header("General Settings", divider = True)
+st.header("General Settings")
 col1, col2 = st.columns(2)
 with col1:
     branding_colors = [st.color_picker("Branding Color 1"), st.color_picker("Branding Color 2"), st.color_picker("Branding Color 3")]
