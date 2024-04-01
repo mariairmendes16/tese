@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 def blue_divider():
     st.markdown(
         """
-        <div style="background-color: #0667FF; height: 3px;"></div>
+        <div style="background-color: #0667FF; height: 1.5px;"></div>
         """,
         unsafe_allow_html=True,
     )
