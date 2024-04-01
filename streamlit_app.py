@@ -87,6 +87,8 @@ blue_divider()
 col1, col2 = st.columns(2)
 with col1:
     branding_colors = [st.color_picker("Branding Color 1"), st.color_picker("Branding Color 2")]
+    if len(set(branding_colors)) < len(branding_colors):
+        st.error("Please choose unique colors for branding.")
     add_third_color = st.checkbox("Add 3rd Branding Color")
 if add_third_color:
     branding_colors.append(st.color_picker("Branding Color 3"))
