@@ -57,7 +57,7 @@ footer_menu = st.checkbox("Include Menu in Footer")
 footer_social_media = st.checkbox("Include Social Media Links in Footer")
 footer_copyrighting_info = st.checkbox("Include Copyrighting Information in Footer")
 footer_unsubscribe_link = st.checkbox("Include Unsubscribe Link in Footer")
-branding_colors = st.color_picker("Choose Branding Colors", ["#ffffff", "#000000", "#ff0000"])
+branding_colors = st.color_picker("Choose Branding Colors", '#000000')
 
 email_category = st.selectbox("Email Category", ["Invoice", "Welcome Email", "Pre-Arrival", "Apology", "Informative", "Birthday", "Double Opt-In", "Newsletter"])
 email_description = st.text_area("Small Description (Max 200 Characters)", max_chars=200)
