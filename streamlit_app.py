@@ -89,13 +89,13 @@ with col1:
     st.markdown("##### 🎨 Branding Colors")
     branding_colors_placeholder = st.empty()
     branding_colors = [st.color_picker("Branding Color 1️⃣"), st.color_picker("Branding Color 2️⃣")]
-    add_third_color = st.checkbox("Add Branding Color")
+    add_third_color = st.checkbox("Add Branding Color 3️⃣")
     if add_third_color:
         branding_colors.append(st.color_picker("Branding Color 3️⃣"))
-        add_fourth_color = st.checkbox("Add Branding Color")
+        add_fourth_color = st.checkbox("Add Branding Color 4️⃣")
         if add_fourth_color:
             branding_colors.append(st.color_picker("Branding Color 4️⃣"))
-            add_fifth_color = st.checkbox("Add Branding Color")
+            add_fifth_color = st.checkbox("Add Branding Color 5️⃣")
             if add_fifth_color:
                 branding_colors.append(st.color_picker("Branding Color 5️⃣"))
 
