@@ -87,7 +87,7 @@ blue_divider()
 col1, col2 = st.columns(2)
 with col1:
     #st.subheader("🎨 Branding Colors")
-    st.markdown("#### 🎨 Branding Colors")
+    st.markdown("###### 🎨 Branding Colors")
     branding_colors_placeholder = st.empty()
     branding_colors = [st.color_picker("Branding Color 1️⃣"), st.color_picker("Branding Color 2️⃣")]
     add_third_color = st.checkbox("Add 3rd Branding Color")
