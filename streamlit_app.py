@@ -1,6 +1,7 @@
 import streamlit as st
 import openai
 from bs4 import BeautifulSoup
+import streamlit.components.v1 as components
 
 def blue_divider():
     st.markdown(
